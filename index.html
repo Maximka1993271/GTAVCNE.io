@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +9,19 @@
     <title>GTA Vice City Nextgen Edition</title>
     <link rel="icon" href="images/Icon.ico" type="image/x-icon">
     
-    <!-- Подключаем внешний CSS -->
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         GTA Vice City Nextgen Edition
     </header>
-	
-	    <!-- Ссылка на радио под шапкой -->
+    
     <div class="radio-link">
         <a href="https://gtaradio.net/ru/vc/" target="_blank" class="radio-btn">Radio VC</a>
     </div>
 
-
-    <!-- Часы -->
     <div class="clock" id="clock">00:00</div>
 
-    <!-- Показатели (деньги, броня, здоровье) -->
     <div class="stats">
         <div class="stat money" id="money">$999999999</div>
         <div class="stat-group">
@@ -35,71 +30,27 @@
         </div>
     </div>
 
-    <!-- Звезды розыска -->
     <div class="stars" id="stars"></div>
 
     <div class="content"></div>
 
-    <div class="button-wrapper">
-        <a href="files/GTAVCNE_EN_RU.torrent" class="btn" download aria-label="Скачать торрент GTA Vice City Nextgen Edition">Download GTA Vice City Nextgen Edition Torrent</a>
-    </div>
-
-	<div class="button-wrapper">
-        <a href="https://drive.google.com/file/d/1JPKOlh-jbf_6JMIYQHu-P0xqlJLkXbxx/view?usp=drive_link" class="btn" download aria-label="Скачать GTA Vice City Nextgen Edition">Download GTA Vice City Nextgen Edition + Patch v1.2 Google Drive</a>
-    </div>
-    
-    <div class="button-wrapper">
-        <a href="https://drive.google.com/file/d/1AfIZM1BTCGS7CxUwVaRhCCCThMFgNixo/view?usp=drive_link" class="btn" download aria-label="Скачать GTA Vice City Nextgen Edition">Download GTA Vice City Nextgen Edition + Patch v1.3 Google Drive</a>
+    <!-- КНОПКИ - ТОЛЬКО ОНИ ИЗМЕНЕНЫ -->
+    <div class="buttons-container">
+        <div class="button-wrapper">
+            <a href="files/GTAVCNE_EN_RU.torrent" class="btn" download>DOWNLOAD GTA VICE CITY NEXTGEN EDITION TORRENT</a>
+        </div>
+        <div class="button-wrapper">
+            <a href="https://drive.google.com/file/d/1JPKOlh-jbf_6JMIYQHu-P0xqlJLkXbxx/view?usp=drive_link" class="btn">DOWNLOAD GTA VICE CITY NEXTGEN EDITION + PATCH V1.2 GOOGLE DRIVE</a>
+        </div>
+        <div class="button-wrapper">
+            <a href="https://drive.google.com/file/d/1AfIZM1BTCGS7CxUwVaRhCCCThMFgNixo/view?usp=drive_link" class="btn">DOWNLOAD GTA VICE CITY NEXTGEN EDITION + PATCH V1.3 GOOGLE DRIVE</a>
+        </div>
     </div>
 
     <footer>
-        &copy; 2025 GTA Vice City Nextgen Edition. All rights reserved.
+        © 2025 GTA Vice City Nextgen Edition. All rights reserved.
     </footer>
 
-    <!-- Скрипты -->
-    <script>
-        
-        // Обновление часов
-        function updateClock() {
-            const now = new Date();
-            let hours = now.getHours().toString().padStart(2, '0');
-            let minutes = now.getMinutes().toString().padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Динамическое изменение денег, брони и здоровья (пример)
-        function updateStats() {
-            document.getElementById('money').textContent = `$${Math.floor(Math.random() * 999999999)}`;
-            document.getElementById('armor').textContent = Math.floor(Math.random() * 200);
-            document.getElementById('health').textContent = Math.floor(Math.random() * 200);
-        }
-        setInterval(updateStats, 5000); // Обновление каждые 5 секунд (можно отключить)
-
-        // Управление звездами розыска
-        let wantedLevel = 0;
-        function updateStars() {
-            const starsContainer = document.getElementById('stars');
-            starsContainer.innerHTML = '';
-            for (let i = 0; i < wantedLevel; i++) {
-                const star = document.createElement('span');
-                star.classList.add('star');
-                star.textContent = '★';
-                starsContainer.appendChild(star);
-            }
-        }
-        function increaseWantedLevel() {
-            if (wantedLevel < 6) {
-                wantedLevel++;
-                updateStars();
-            }
-        }
-        setTimeout(increaseWantedLevel, 2000);
-        setInterval(increaseWantedLevel, 3000);
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
-

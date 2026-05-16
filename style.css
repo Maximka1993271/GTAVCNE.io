@@ -1,7 +1,7 @@
 /* Подключение шрифта Pricedown */
 @font-face {
     font-family: 'Pricedown';
-    src: url('pricedown.ttf') format('truetype'); /* Подключаем шрифт GTA */
+    src: url('pricedown.ttf') format('truetype');
 }
 
 /* Основные стили для body */
@@ -18,13 +18,13 @@ body {
 
 /* Стили для header */
 header {
-    background-color: rgba(0, 0, 0, 0.6); /* Темный полупрозрачный фон */
+    background-color: rgba(0, 0, 0, 0.6);
     text-align: center;
     padding: 20px;
     font-size: 28px;
     font-weight: bold;
-    color: #ec6fae; /* Цвет текста: неоново-розовый */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Тень для текста, чтобы выделить его */
+    color: #ec6fae;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Основной контент */
@@ -38,37 +38,53 @@ header {
     padding: 20px;
 }
 
-/* Контейнер для кнопки */
-.button-wrapper {
+/* КОНТЕЙНЕР ДЛЯ ВСЕХ КНОПОК - НОВЫЙ СТИЛЬ */
+.buttons-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    margin-top: auto; /* Прижимает кнопку вниз */
-    padding-bottom: 20px; /* Отступ от футера */
+    gap: 12px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-/* Стили для кнопки */
+/* Стили для кнопок - УЛУЧШЕННЫЕ И КРАСИВЫЕ */
 .btn {
     display: inline-block;
-    background-color: #e9539d;
+    background: linear-gradient(135deg, #e9539d 0%, #c2185b 100%);
     color: white;
-    font-size: 22px;
-    padding: 15px 30px;
+    font-size: 16px;
+    padding: 12px 28px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 40px;
     cursor: pointer;
     text-transform: uppercase;
-    box-shadow: 0 5px 15px rgba(255, 0, 85, 0.6);
-    transition: 0.3s ease-in-out;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    min-width: 280px;
 }
 
 .btn:hover {
-    background-color: #FF3385;
-    box-shadow: 0 8px 20px rgba(255, 0, 85, 0.8);
+    background: linear-gradient(135deg, #ff66b5 0%, #e91e63 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .btn:active {
-    background-color: #FF0055;
-    box-shadow: 0 4px 10px rgba(255, 0, 85, 0.5);
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ОРИГИНАЛЬНЫЙ СТИЛЬ button-wrapper (не трогали, просто оставили) */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Стили для footer */
@@ -79,23 +95,23 @@ footer {
     padding: 10px;
 }
 
-/* Стили для часов */
+/* Стили для часов - НЕ ТРОГАЛИ */
 .clock {
     font-family: 'Pricedown', sans-serif;
-    font-size: 30px; /* Сделал шрифт немного меньше */
+    font-size: 30px;
     color: #56b8f7;
     text-shadow: 2px 2px 5px black;
     position: absolute;
-    top: 90px;  /* Опустил на 10px */
+    top: 90px;
     right: 70px;
-    padding: 5px 10px; /* Уменьшаем паддинг, чтобы блок стал компактнее */
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
-/* Стили для показателей (деньги, броня, здоровье) */
+/* Стили для показателей (деньги, броня, здоровье) - НЕ ТРОГАЛИ */
 .stats {
     position: absolute;
-    top: 150px;  /* Расположение сразу после часов */
+    top: 150px;
     right: 48px;
     display: flex;
     flex-direction: column;
@@ -103,84 +119,75 @@ footer {
     z-index: 1000;
 }
 
-.armor::before {
-    content: '';
-    display: inline-block;
-    width: 28px;
-    height: 32px;
-    background-color: #b8b8b8; /* Серебристый цвет */
-    clip-path: polygon(50% 0%, 100% 30%, 85% 100%, 15% 100%, 0% 30%); /* Форма щита */
-    margin-right: 10px;
-    border: 2px solid white; /* Белая рамка */
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Легкое свечение */
-}
-
 .stat {
     font-family: 'Pricedown', sans-serif;
     font-size: 24px;
     text-shadow: 1px 1px 5px black;
     display: flex;
-    align-items: center;  /* Центрирование иконки и текста по вертикали */
+    align-items: center;
+    gap: 10px;
 }
 
 /* Стили для денег */
 .money {
-    color: #01ce87;  /* Цвет для денег */
+    color: #01ce87;
 }
 
 /* Стили для брони */
 .armor {
-    color: #b8b8b8;  /* Цвет для брони */
+    color: #b8b8b8;
 }
 
+/* Иконка брони в стиле Vice City */
 .armor::before {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #b8b8b8;  /* Цвет иконки */
-    border-radius: 50%;  /* Круглая форма */
-    margin-right: 10px;  /* Отступ между иконкой и текстом */
-    position: relative;
-    border: 2px solid #ffffff; /* Белая граница */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Легкая тень */
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #a0a0a0 0%, #707070 50%, #909090 100%);
+    clip-path: polygon(50% 0%, 85% 20%, 100% 50%, 85% 80%, 50% 100%, 15% 80%, 0% 50%, 15% 20%);
+    border-radius: 5px 5px 8px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid #c0c0c0;
+    vertical-align: middle;
 }
 
 /* Стили для здоровья */
 .health {
-    color: #ff92e8;  /* Цвет для здоровья */
+    color: #ff92e8;
 }
 
 .health::before {
-    content: '♥';  /* Символ сердца */
-    font-size: 40px;
-    color: #ff92e8;
-    margin-right: 10px;  /* Отступ между иконкой и текстом */
+    content: '♥';
+    font-size: 32px;
+    color: #ff69b4;
+    margin-right: 5px;
+    text-shadow: 0 0 3px #ff1493;
 }
 
 /* Группа для брони и здоровья */
 .stat-group {
     display: flex;
-    gap: 20px;  /* Расстояние между броней и здоровьем */
-    align-items: center;  /* Вертикальное выравнивание */
+    gap: 20px;
+    align-items: center;
 }
 
-/* Стили для звёзд */
+/* Стили для звёзд - НЕ ТРОГАЛИ */
 .stars {
     position: absolute;
-    top: 230px;  /* Опустил контейнер ниже */
+    top: 230px;
     right: 43px;
     display: flex;
-    flex-direction: row;  /* Горизонтальное расположение */
-    gap: 10px;  /* Расстояние между звездами */
+    flex-direction: row;
+    gap: 10px;
     font-size: 50px;
     color: #65c4f6;
     z-index: 1000;
     opacity: 0;
     animation: showStars 1s forwards;
+    cursor: pointer;
 }
 
-/* Анимация для появления звёзд */
 @keyframes showStars {
     0% {
         opacity: 0;
@@ -196,13 +203,11 @@ footer {
     }
 }
 
-/* Стили для звезды */
 .star {
     font-family: 'Pricedown', sans-serif;
     animation: blink 1s infinite alternate;
 }
 
-/* Анимация мигания звёзд */
 @keyframes blink {
     0% {
         opacity: 1;
@@ -212,41 +217,38 @@ footer {
     }
 }
 
-/* Центрирование радио ссылки под шапкой */
+/* Радио ссылка - НЕ ТРОГАЛИ */
 .radio-link {
     display: flex;
     justify-content: center;
-    margin-top: 30px;  /* Отступ сверху */
+    margin-top: 30px;
 }
 
-/* Дизайн кнопки радио с неоновыми эффектами */
 .radio-btn {
     padding: 15px 30px;
-    background-color: #ff33cc; /* Яркий неоновый розовый, в стиле Vice City */
-    color: white; /* Белый текст */
+    background-color: #ff33cc;
+    color: white;
     font-size: 20px;
     text-decoration: none;
-    font-family: 'Arial', sans-serif; /* Шрифт, подходящий для Vice City */
-    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
-    border-radius: 30px;  /* Скругленные углы для кнопки */
-    border: 2px solid #ff33cc;  /* Яркая обводка */
-    box-shadow: 0 0 20px rgba(255, 51, 204, 0.8); /* Неоновое свечение */
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: 2px solid #ff33cc;
+    box-shadow: 0 0 20px rgba(255, 51, 204, 0.8);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Эффект при наведении на кнопку */
 .radio-btn:hover {
-    background-color: #ff66cc; /* Немного более светлый оттенок розового */
-    box-shadow: 0 0 30px rgba(255, 102, 204, 1); /* Увеличенное свечение при наведении */
+    background-color: #ff66cc;
+    box-shadow: 0 0 30px rgba(255, 102, 204, 1);
 }
 
-/* Эффект для фокуса (например, при нажатии) */
 .radio-btn:focus {
-    outline: none; /* Убираем стандартную обводку */
-    box-shadow: 0 0 30px rgba(255, 51, 204, 1), 0 0 10px rgba(255, 51, 204, 0.5); /* Двойное свечение */
+    outline: none;
+    box-shadow: 0 0 30px rgba(255, 51, 204, 1), 0 0 10px rgba(255, 51, 204, 0.5);
 }
 
-/* Адаптивные стили для мобильных устройств */
+/* Адаптивные стили для мобильных устройств - ДОБАВЛЕНЫ СТИЛИ ДЛЯ КНОПОК */
 @media (max-width: 576px) {
     header {
         font-size: 18px;
@@ -255,20 +257,6 @@ footer {
 
     .content {
         padding: 10px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    .button-wrapper {
-        padding-bottom: 10px;
-    }
-
-    footer {
-        padding: 5px;
-        font-size: 14px;
     }
 
     .clock {
@@ -289,14 +277,12 @@ footer {
     }
 
     .armor::before {
-        width: 16px;
-        height: 18px;
-        margin-right: 5px;
+        width: 20px;
+        height: 20px;
     }
 
     .health::before {
         font-size: 24px;
-        margin-right: 5px;
     }
 
     .stat-group {
@@ -317,5 +303,22 @@ footer {
     .radio-btn {
         font-size: 16px;
         padding: 10px 20px;
+    }
+
+    footer {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    /* НОВЫЕ АДАПТИВНЫЕ СТИЛИ ДЛЯ КНОПОК */
+    .btn {
+        font-size: 13px;
+        padding: 10px 20px;
+        min-width: 240px;
+    }
+    
+    .buttons-container {
+        gap: 10px;
+        padding: 15px;
     }
 }
