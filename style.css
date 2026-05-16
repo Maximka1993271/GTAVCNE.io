@@ -38,7 +38,7 @@ header {
     padding: 20px;
 }
 
-/* КОНТЕЙНЕР ДЛЯ ВСЕХ КНОПОК - НОВЫЙ СТИЛЬ */
+/* КОНТЕЙНЕР ДЛЯ ВСЕХ КНОПОК */
 .buttons-container {
     display: flex;
     flex-direction: column;
@@ -80,7 +80,7 @@ header {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* ОРИГИНАЛЬНЫЙ СТИЛЬ button-wrapper (не трогали, просто оставили) */
+/* ОРИГИНАЛЬНЫЙ СТИЛЬ button-wrapper */
 .button-wrapper {
     display: flex;
     justify-content: center;
@@ -95,7 +95,7 @@ footer {
     padding: 10px;
 }
 
-/* Стили для часов - НЕ ТРОГАЛИ */
+/* Стили для часов */
 .clock {
     font-family: 'Pricedown', sans-serif;
     font-size: 30px;
@@ -108,7 +108,7 @@ footer {
     border-radius: 5px;
 }
 
-/* Стили для показателей (деньги, броня, здоровье) - НЕ ТРОГАЛИ */
+/* Стили для показателей (деньги, броня, здоровье) */
 .stats {
     position: absolute;
     top: 150px;
@@ -172,7 +172,7 @@ footer {
     align-items: center;
 }
 
-/* Стили для звёзд - НЕ ТРОГАЛИ */
+/* Стили для звёзд */
 .stars {
     position: absolute;
     top: 230px;
@@ -217,7 +217,7 @@ footer {
     }
 }
 
-/* Радио ссылка - НЕ ТРОГАЛИ */
+/* Радио ссылка */
 .radio-link {
     display: flex;
     justify-content: center;
@@ -248,7 +248,76 @@ footer {
     box-shadow: 0 0 30px rgba(255, 51, 204, 1), 0 0 10px rgba(255, 51, 204, 0.5);
 }
 
-/* Адаптивные стили для мобильных устройств - ДОБАВЛЕНЫ СТИЛИ ДЛЯ КНОПОК */
+/* ========== АНИМАЦИИ ДЛЯ ДЕНЕГ, БРОНИ И ЗДОРОВЬЯ ========== */
+
+/* Анимация для денег */
+.money-flash {
+    animation: moneyPulse 0.3s ease-in-out;
+}
+
+@keyframes moneyPulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0px #01ce87;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 15px #01ce87;
+        color: #00ffaa;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0px #01ce87;
+    }
+}
+
+/* Анимация для брони и здоровья */
+.stat-flash {
+    animation: statPulse 0.3s ease-in-out;
+}
+
+@keyframes statPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Дополнительная анимация для денег при большом изменении */
+.money-big-change {
+    animation: moneyBigPulse 0.5s ease-in-out;
+}
+
+@keyframes moneyBigPulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0px #01ce87;
+    }
+    30% {
+        transform: scale(1.2);
+        text-shadow: 0 0 20px #01ce87;
+        color: #ff00aa;
+    }
+    60% {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px #01ce87;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0px #01ce87;
+    }
+}
+
+/* ========== АДАПТИВНЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
+
 @media (max-width: 576px) {
     header {
         font-size: 18px;
@@ -310,7 +379,7 @@ footer {
         font-size: 14px;
     }
 
-    /* НОВЫЕ АДАПТИВНЫЕ СТИЛИ ДЛЯ КНОПОК */
+    /* Адаптивные стили для кнопок */
     .btn {
         font-size: 13px;
         padding: 10px 20px;
